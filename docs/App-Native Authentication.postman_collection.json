@@ -1,0 +1,600 @@
+{
+	"info": {
+		"_postman_id": "aa410779-6dca-468e-870a-77307e999a56",
+		"name": "App-Native Authentication",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "10196491"
+	},
+	"item": [
+		{
+			"name": "Init",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableCookies": true,
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "x-client-attestation",
+						"value": "{{attestation_object}}",
+						"description": "attestation object when using attestation",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "client_id",
+							"value": "{{client_id}}",
+							"type": "text"
+						},
+						{
+							"key": "response_type",
+							"value": "code",
+							"type": "text"
+						},
+						{
+							"key": "redirect_uri",
+							"value": "{{redirect_uri}}",
+							"type": "text"
+						},
+						{
+							"key": "scope",
+							"value": "openid",
+							"type": "text"
+						},
+						{
+							"key": "response_mode",
+							"value": "direct",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://localhost:9443/oauth2/authorize",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "9443",
+					"path": [
+						"oauth2",
+						"authorize"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Next",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableCookies": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"flowId\": \"{{flowId}}\",\n    \"selectedAuthenticator\": {\n        \"authenticatorId\": \"{{authenticatorId}}\",\n        \"params\": {\n            // add authenticator params here\n        }\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:9443/oauth2/authn",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "9443",
+					"path": [
+						"oauth2",
+						"authn"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Next[multiops-select]",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableCookies": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"flowId\": \"{{flowId}}\",\n    \"selectedAuthenticator\": {\n        \"authenticatorId\": \"{{selected_option}}\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:9443/oauth2/authn",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "9443",
+					"path": [
+						"oauth2",
+						"authn"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Next[un+pw]",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableCookies": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"flowId\": \"{{flowId}}\",\n    \"selectedAuthenticator\": {\n        \"authenticatorId\": \"QmFzaWNBdXRoZW50aWNhdG9yOkxPQ0FM\",\n        \"params\": {\n            \"username\": \"{{username}}\",\n            \"password\": \"{{password}}\"\n        }\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:9443/oauth2/authn",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "9443",
+					"path": [
+						"oauth2",
+						"authn"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Next[totp]",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableCookies": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"flowId\": \"{{flowId}}\",\n    \"selectedAuthenticator\": {\n        \"authenticatorId\": \"dG90cDpMT0NBTA\",\n        \"params\": {\n            \"token\": \"{{totp_code}}\"\n        }\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:9443/oauth2/authn",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "9443",
+					"path": [
+						"oauth2",
+						"authn"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Next[passkey]",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableCookies": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"flowId\": \"{{flowId}}\",\n    \"selectedAuthenticator\": {\n        \"authenticatorId\": \"RklET0F1dGhlbnRpY2F0b3I6TE9DQUw\",\n        \"params\": {\n            \"tokenResponse\": \"{{device_response_base64_url_encoded}}\"\n        }\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:9443/oauth2/authn",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "9443",
+					"path": [
+						"oauth2",
+						"authn"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Next[google-native]",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableCookies": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"flowId\": \"{{flowId}}\",\n    \"selectedAuthenticator\": {\n        \"authenticatorId\": \"R29vZ2xlT0lEQ0F1dGhlbnRpY2F0b3I6R29vZ2xl\",\n        \"params\": {\n            \"accessToken\": \"{{access_token_from_google}}\",\n            \"idToken\": \"{{id_token_from_google}}\"\n        }\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:9443/oauth2/authn",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "9443",
+					"path": [
+						"oauth2",
+						"authn"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Token call",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableCookies": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "client_id",
+							"value": "{{client_id}}",
+							"type": "text"
+						},
+						{
+							"key": "code",
+							"value": "{{authz_code}}",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "authorization_code",
+							"type": "text"
+						},
+						{
+							"key": "redirect_uri",
+							"value": "{{redirect_uri}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://localhost:9443/oauth2/token",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "9443",
+					"path": [
+						"oauth2",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SSO",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableCookies": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "client_id",
+							"value": "{{client_id}}",
+							"type": "text"
+						},
+						{
+							"key": "response_type",
+							"value": "code",
+							"type": "text"
+						},
+						{
+							"key": "redirect_uri",
+							"value": "{{redirect_uri}}",
+							"type": "text"
+						},
+						{
+							"key": "scope",
+							"value": "openid",
+							"type": "text"
+						},
+						{
+							"key": "response_mode",
+							"value": "direct",
+							"type": "text"
+						},
+						{
+							"key": "sessionId",
+							"value": "{{isk_claim_from_id_token}}",
+							"description": "isk claim found in the id_token",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://localhost:9443/oauth2/authorize",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "9443",
+					"path": [
+						"oauth2",
+						"authorize"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Logout",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				},
+				"disableCookies": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "id_token_hint",
+							"value": "{{id_token}}",
+							"type": "text"
+						},
+						{
+							"key": "response_mode",
+							"value": "direct",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://localhost:9443/oidc/logout",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "9443",
+					"path": [
+						"oidc",
+						"logout"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "used-clientid",
+			"value": ""
+		},
+		{
+			"key": "req-flowId",
+			"value": ""
+		},
+		{
+			"key": "auth-code",
+			"value": ""
+		},
+		{
+			"key": "auth-id_token",
+			"value": ""
+		},
+		{
+			"key": "auth-access_token",
+			"value": ""
+		}
+	]
+}

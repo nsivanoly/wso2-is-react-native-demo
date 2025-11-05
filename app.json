@@ -1,0 +1,38 @@
+{
+  "expo": {
+    "name": "WSO2 Identity Server",
+    "slug": "wso2-identity-server",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/AppIcons/appstore.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.wso2.identityserver"
+    },
+    "android": {
+      "package": "com.wso2.identityserver",
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#FFFFFF"
+      }
+    },
+    "web": {
+      "bundler": "metro",
+      "favicon": "./assets/favicon.png"
+    },
+    "scheme": "wso2isdemo",
+    "platforms": ["ios", "android", "web"],
+    "experiments": {
+      "typedRoutes": false
+    }
+  }
+}
