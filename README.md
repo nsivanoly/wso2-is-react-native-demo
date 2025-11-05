@@ -50,81 +50,6 @@ npm run ios
 
 #### Supported Versions
 
-This demo is optimized for **WSO2 Identity Server 7.x and later versions**:
-
-- **WSO2 Identity Server 7.0.0** (Latest LTS - Recommended)
-- **WSO2 Identity Server 7.1.0** (Latest features)
-- **Future 7.x releases** (Forward compatibility)
-
-**Note**: While this demo may work with WSO2 IS 6.x versions, it is specifically designed and tested for WSO2 IS 7.x+ to leverage the latest App-Native Authentication enhancements.
-
-#### WSO2 IS 7.x+ Features Used
-
-- **Enhanced App-Native Authentication**: Improved mobile authentication flows
-- **Advanced MFA Support**: Better multi-factor authentication handling
-- **OAuth 2.1 Compliance**: Latest OAuth security standards
-- **Improved FIDO2/Passkey**: Enhanced passwordless authentication
-- **Better Error Handling**: More detailed error responses for mobile apps
-- **Performance Optimizations**: Faster authentication flows
-
-#### Setup Instructions for WSO2 IS 7.x+
-
-1. **Create OAuth Application**
-   - NavigateI'll update the README.md file to include WSO2 Identity Server version information, specifically focusing on WSO2 IS 7.x+ onwards as requested.
-
-````markdown
-# WSO2 Identity Server React Native Demo
-
-A complete React Native mobile application demonstrating WSO2 Identity Server App-Native Authentication with multiple MFA methods.
-
-## Features
-
-- **Complete Authentication Flow**: Username/password + MFA
-- **Multiple Authenticators**: TOTP, SMS OTP, Email OTP, Passkey (FIDO2)
-- **Professional UI**: Clean purple theme with responsive design
-- **Error Handling**: Comprehensive error messages and flow recovery
-- **Production Ready**: APK build support and optimized code
-
-## Quick Start
-
-### Prerequisites
-
-- Node.js 16+
-- React Native development environment
-- WSO2 Identity Server 7.x+ configured with app-native authentication
-- ngrok for tunneling (development)
-
-### Installation
-
-1. **Clone and Install**
-```bash
-git clone git@github.com:nsivanoly/wso2-is-react-native-demo.git
-cd wso2-is-react-native-demo
-npm install
-```
-
-2. **Configure WSO2 IS Connection**
-   - Update configuration in the app with your WSO2 IS details
-   - Set up ngrok tunnel to your WSO2 IS instance
-
-3. **Run the Application**
-```bash
-# Start Metro bundler
-npm start
-
-# Run on Android
-npm run android
-
-# Run on iOS  
-npm run ios
-```
-
-## Configuration
-
-### WSO2 Identity Server Setup
-
-#### Supported Versions
-
 This demo is designed and tested for **WSO2 Identity Server 7.x+ onwards**:
 
 - **WSO2 Identity Server 7.0.0** (Latest LTS - Recommended)
@@ -269,6 +194,15 @@ src/
 - **Passkey/FIDO2**: Passwordless authentication with enhanced security
 - **Biometric**: Device-based biometric authentication (when available)
 
+### Demo Implementation
+
+For demonstration purposes, this React Native app specifically implements:
+- ✅ **Username & Password** (primary authentication)
+- ✅ **SMS OTP** (secondary authentication)
+- ✅ **Email OTP** (secondary authentication)
+
+**Note**: Additional authenticators (TOTP, Passkey) can be easily integrated following the same pattern with WSO2 IS 7.x+ enhanced APIs.
+
 ### Platform-Specific Features
 - **iOS**: Face ID, Touch ID integration
 - **Android**: Fingerprint, face unlock integration
@@ -287,7 +221,7 @@ cd android
 ./gradlew assembleRelease
 ```
 
-APK will be generated in [apk](http://_vscodecontentref_/3)
+APK will be generated in `android/app/build/outputs/apk/`
 
 ### Production Deployment Considerations
 
