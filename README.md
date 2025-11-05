@@ -52,7 +52,7 @@ npm run ios
 
 This demo is designed and tested for **WSO2 Identity Server 7.x+ onwards**:
 
-- **WSO2 Identity Server 7.0.0** (Latest LTS - Recommended)
+- **WSO2 Identity Server 7.2.0** (Latest LTS - Recommended)
 - **WSO2 Identity Server 7.1.0+** (Latest features)
 - **WSO2 Asgardeo** (Cloud-based identity platform)
 
@@ -286,13 +286,9 @@ APK will be generated in `android/app/build/outputs/apk/`
 ## Resources
 
 ### Documentation
-- [WSO2 Identity Server 7.x Documentation](https://is.docs.wso2.com/en/7.0.0/)
+- [WSO2 Identity Server 7.x Documentation](https://is.docs.wso2.com/en/7.2.0/)
 - [WSO2 Asgardeo Documentation](https://asgardeo.io/docs/)
-- [App-Native Authentication Guide](https://is.docs.wso2.com/en/7.0.0/develop/app-native-authentication/)
-
-### Migration Guides
-- [Migrating to WSO2 IS 7.x](https://is.docs.wso2.com/en/7.0.0/deploy/migrate/)
-- [WSO2 IS to Asgardeo Migration](https://asgardeo.io/docs/migrate/)
+- [App-Native Authentication Guide](https://is.docs.wso2.com/en/7.2.0/develop/app-native-authentication/)
 
 ## License
 
@@ -301,7 +297,7 @@ This project is for demonstration purposes. Ensure proper licensing for producti
 ## Support
 
 For WSO2 Identity Server 7.x+ configuration and setup:
-- [WSO2 Identity Server Documentation](https://is.docs.wso2.com/en/7.0.0/)
+- [WSO2 Identity Server Documentation](https://is.docs.wso2.com/en/7.2.0/)
 - [WSO2 Community](https://github.com/wso2/product-is)
 - [WSO2 Support Portal](https://support.wso2.com/) (for enterprise customers)
 
