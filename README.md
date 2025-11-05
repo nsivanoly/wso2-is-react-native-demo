@@ -23,8 +23,8 @@ A complete React Native mobile application demonstrating WSO2 Identity Server Ap
 
 1. **Clone and Install**
 ```bash
-git clone <repository-url>
-cd WSO2ISDemo
+git clone git@github.com:nsivanoly/wso2-is-react-native-demo.git
+cd wso2-is-react-native-demo
 npm install
 ```
 
