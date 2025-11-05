@@ -148,7 +148,7 @@ Use this URL in your demo app configuration.
 Clone the demo repo:
 
 ```bash
-git clone https://github.com/your-repo/wso2-is-react-native-demo.git
+git clone https://github.com/nsivanoly/wso2-is-react-native-demo.git
 cd wso2-is-react-native-demo
 npm install   # or yarn install
 ```

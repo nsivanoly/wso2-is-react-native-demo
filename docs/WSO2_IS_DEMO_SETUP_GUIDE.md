@@ -167,7 +167,7 @@ For production or cloud-hosted WSO2 IS:
 
 1. **Clone the Demo Repository**
    ```bash
-   git clone https://github.com/your-repo/wso2-is-react-native-demo.git
+   git clone https://github.com/nsivanoly/wso2-is-react-native-demo.git
    cd wso2-is-react-native-demo
    ```
 
